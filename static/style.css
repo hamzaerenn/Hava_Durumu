@@ -1,0 +1,184 @@
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    font-family: 'Montserrat', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    transition: background 0.5s ease;
+    position: relative;
+}
+
+.bg-source {
+    position: fixed;
+    top: 18px;
+    right: 32px;
+    z-index: 100;
+    background: rgba(0,0,0,0.35);
+    padding: 7px 18px;
+    border-radius: 20px;
+    font-size: 0.95rem;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.12);
+}
+.bg-source a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    transition: color 0.2s;
+}
+.bg-source a:hover {
+    color: #ffd700;
+}
+
+.weather-container {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.weather-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2.7rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: #fff;
+    text-shadow: 0 2px 16px rgba(0,0,0,0.18);
+}
+
+.weather-card {
+    border-radius: 32px;
+    background: rgba(255,255,255,0.92);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+    padding: 2.5rem 2.5rem 2rem 2.5rem;
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+    position: relative;
+    overflow: visible;
+    transition: box-shadow 0.3s;
+}
+.weather-card:hover {
+    box-shadow: 0 16px 48px rgba(0,0,0,0.22);
+}
+
+.weather-temp {
+    font-size: 4.5rem;
+    font-weight: 700;
+    color: #2c3e50;
+    letter-spacing: 2px;
+    margin: 1.2rem 0 0.5rem 0;
+    text-shadow: 0 2px 12px rgba(0,0,0,0.08);
+}
+
+.weather-desc {
+    font-size: 1.5rem;
+    color: #34495e;
+    margin-bottom: 1.5rem;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+}
+
+/* Güneş animasyonu */
+.sun-anim {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto;
+    border-radius: 50%;
+    background: radial-gradient(circle, #ffe259 60%, #ffa751 100%);
+    box-shadow: 0 0 40px 10px #ffe25999;
+    position: relative;
+    animation: sun-shine 2s infinite alternate;
+}
+@keyframes sun-shine {
+    0% { box-shadow: 0 0 40px 10px #ffe25999; }
+    100% { box-shadow: 0 0 60px 20px #ffd70099; }
+}
+
+.cloud-anim {
+    width: 100px;
+    height: 60px;
+    margin: 0 auto;
+    background: none;
+    position: relative;
+}
+.cloud-anim::before, .cloud-anim::after {
+    content: '';
+    position: absolute;
+    background: #e0e0e0;
+    border-radius: 50%;
+}
+.cloud-anim::before {
+    width: 60px;
+    height: 60px;
+    left: 10px;
+    top: 0;
+}
+.cloud-anim::after {
+    width: 80px;
+    height: 40px;
+    left: 0;
+    top: 20px;
+}
+
+.rain-animation {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    z-index: 10;
+}
+.raindrop {
+    position: absolute;
+    top: -10px;
+    width: 2px;
+    height: 18px;
+    background: rgba(0, 120, 255, 0.5);
+    border-radius: 1px;
+    animation: rain-fall 1.2s linear infinite;
+}
+@keyframes rain-fall {
+    to {
+        top: 100vh;
+    }
+}
+
+.snow-animation {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    z-index: 10;
+}
+.snowflake {
+    position: absolute;
+    top: -10px;
+    width: 8px;
+    height: 8px;
+    background: white;
+    border-radius: 50%;
+    opacity: 0.8;
+    animation: snow-fall 3s linear infinite;
+}
+@keyframes snow-fall {
+    to {
+        top: 100vh;
+        transform: translateX(40px) rotate(360deg);
+    }
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    .weather-card {
+        padding: 1.2rem 0.5rem 1.2rem 0.5rem;
+    }
+    .weather-title {
+        font-size: 2rem;
+    }
+    .sun-anim, .cloud-anim {
+        width: 60px;
+        height: 40px;
+    }
+}
