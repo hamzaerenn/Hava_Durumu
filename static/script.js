@@ -7,7 +7,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const humidity = document.getElementById('humidity');
     const weatherAnimation = document.getElementById('weatherAnimation');
 
-    // Şehir ve arka plan görselleri eşleştirmesi
     const cityBackgrounds = {
         istanbul: { url: 'url(/static/backgrounds/istanbul.jpeg)' },
         ankara:   { url: 'url(/static/backgrounds/ankara.jpeg)' },
@@ -17,8 +16,6 @@ document.addEventListener('DOMContentLoaded', () => {
         konya:    { url: 'url(/static/backgrounds/konya.jpg)' },
         trabzon:  { url: 'url(/static/backgrounds/trabzon.jpg)' }
     };
-
-    // Hava durumu seçenekleri
     const weatherTypes = [
         { type: 'sunny', desc: 'Güneşli' },
         { type: 'rainy', desc: 'Yağmurlu' },
@@ -67,7 +64,6 @@ document.addEventListener('DOMContentLoaded', () => {
             rain.appendChild(drop);
         }
         document.body.appendChild(rain);
-        // Bulut ekle
         const cloud = document.createElement('div');
         cloud.className = 'cloud-anim';
         weatherAnimation.appendChild(cloud);
@@ -85,7 +81,6 @@ document.addEventListener('DOMContentLoaded', () => {
             snow.appendChild(flake);
         }
         document.body.appendChild(snow);
-        // Bulut ekle
         const cloud = document.createElement('div');
         cloud.className = 'cloud-anim';
         weatherAnimation.appendChild(cloud);
@@ -98,7 +93,6 @@ document.addEventListener('DOMContentLoaded', () => {
         document.body.style.backgroundSize = 'cover';
         document.body.style.backgroundPosition = 'center';
 
-        // Rastgele hava durumu seç
         const weather = weatherTypes[randomBetween(0, weatherTypes.length - 1)];
         temperature.textContent = randomBetween(-5, 38);
         weatherDescription.textContent = weather.desc;
